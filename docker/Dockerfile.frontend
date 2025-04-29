@@ -1,0 +1,20 @@
+# Use Node.js 18 as the base image
+FROM node:18
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the frontend files into the container
+COPY frontend/ .
+
+# Install dependencies
+RUN npm install
+
+# Build the frontend
+RUN npm run build
+
+# Expose the frontend port
+EXPOSE 5173
+
+# Start the frontend server
+CMD ["npm", "run", "dev"]

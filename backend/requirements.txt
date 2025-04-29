@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pymongo
+sqlalchemy
+python-dotenv
+bcrypt
+pyjwt
+twilio
+scikit-learn
+tensorflow
+requests
+hyperledger-fabric-sdk-py
+websockets
+ssl
