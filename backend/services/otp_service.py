@@ -7,9 +7,9 @@ import uuid
 from pydantic import BaseModel, Field
 
 # Load Twilio credentials from environment variables
-TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID", "AC54eab5fb97600abac3231bb2468cb959")
-TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN", "b89e3e1275da51173c3cb748d6e1d716")
-TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER", "+18333656840")
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID", "your_account_sid_here")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN", "your_account_auth_token_here")
+TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER", "your_twilio_number_here")
 
 # Initialize Twilio Client
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
