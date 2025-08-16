@@ -79,13 +79,13 @@ Frontend runs at: http://localhost:5173
 
 📊 Key Performance Highlights
 
-QKD vs RSA → 4x faster key generation with 0.8% QBER.
+- QKD vs RSA → 4x faster key generation with 0.8% QBER.
 
-AI Fraud Detection → LSTM model achieved 95.8% accuracy with 1.2% false positives.
+- AI Fraud Detection → LSTM model achieved 95.8% accuracy with 1.2% false positives.
 
-Blockchain Security → Ensures tamper-proof ledger for payments.
+- Blockchain Security → Ensures tamper-proof ledger for payments.
 
-Transaction Time → ~4.5 sec (quantum-secured) vs ~2 sec (RSA), trading slight latency for future-proof security.
+- Transaction Time → ~4.5 sec (quantum-secured) vs ~2 sec (RSA), trading slight latency for future-proof security.
 
 ---
 
@@ -98,13 +98,13 @@ pytest tests/
 
 📌 Roadmap
 
- Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
+ - Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
  
- Development of Quantum Blockchain for scalable decentralized payments.
+ - Development of Quantum Blockchain for scalable decentralized payments.
  
- AI-driven adaptive QKD optimization.
+ - AI-driven adaptive QKD optimization.
  
- Cloud deployment with Kubernetes.
+ - Cloud deployment with Kubernetes.
 
 ---
 
