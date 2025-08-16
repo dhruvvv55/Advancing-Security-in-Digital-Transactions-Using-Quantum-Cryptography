@@ -1,7 +1,7 @@
 # Advancing Security in Digital Transactions Using Quantum Cryptography
 
 This project is the implementation companion to our research paper:  
-**“Advancing Security in Digital Transactions Using Quantum Cryptography” (JISEM, 2024)**.  
+**“Advancing Security in Digital Transactions Using Quantum Cryptography” (JISEM, 2024)**.
 
 It presents a **quantum-secured payment framework** that integrates **Quantum Key Distribution (QKD)**, **AI-driven fraud detection**, and **Blockchain-based immutability** to protect against both classical and quantum-enabled cyberattacks.
 
@@ -25,40 +25,39 @@ To ensure future-proof financial security, this project explores **quantum crypt
 
 ## 🛠️ Tech Stack
 ### Backend
-- **Python 3**, FastAPI
-- Quantum simulation module (QKD – BB84)
-- AI fraud detection (LSTM, Random Forest)
-- Blockchain transaction module
-- Dockerized deployment
+- **Python 3**, FastAPI  
+- Quantum simulation module (QKD – BB84)  
+- AI fraud detection (LSTM, Random Forest)  
+- Blockchain transaction module  
+- Dockerized deployment  
 
 ### Frontend
-- React + Vite
-- REST API integration
-- Modern UI for transaction monitoring and fraud alerts
+- React + Vite  
+- REST API integration  
+- Modern UI for transaction monitoring and fraud alerts  
 
 ---
 
 ## 📂 System Architecture
 The framework is structured into six layers:
-1. **User Interface Layer** – Web/mobile apps with MFA & biometric authentication.
-2. **Application Server Layer** – Routes user requests and validates credentials.
-3. **Quantum Cryptographic Module (QCM)** – Executes QKD-based secure key distribution.
-4. **Transaction Processing Unit** – Validates and executes transactions.
-5. **AI Fraud Detection** – Identifies anomalies using ML models.
-6. **Blockchain Ledger** – Stores tamper-proof transaction records.
+1. **User Interface Layer** – Web/mobile apps with MFA & biometric authentication.  
+2. **Application Server Layer** – Routes user requests and validates credentials.  
+3. **Quantum Cryptographic Module (QCM)** – Executes QKD-based secure key distribution.  
+4. **Transaction Processing Unit** – Validates and executes transactions.  
+5. **AI Fraud Detection** – Identifies anomalies using ML models.  
+6. **Blockchain Ledger** – Stores tamper-proof transaction records.  
 
 ---
 
 ## ⚡ Installation & Setup
 
-### 1. Clone Repository
+### 1) Clone Repository
 ```bash
 git clone https://github.com/your-username/Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography.git
 cd Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography
 
-### 1. Backend Setup
 cd backend
 python3 -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows (PowerShell): .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
