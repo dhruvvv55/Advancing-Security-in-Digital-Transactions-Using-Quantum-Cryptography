@@ -55,9 +55,56 @@ The framework is structured into six layers:
 ```bash
 git clone https://github.com/your-username/Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography.git
 cd Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography
+```
 
+### 2) Backend Setup
+```bash
 cd backend
 python3 -m venv venv
 source venv/bin/activate   # Windows (PowerShell): .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+Backend runs at: http://localhost:8000
+```
+
+### 3) Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+Frontend runs at: http://localhost:5173
+```
+
+📊 Key Performance Highlights
+
+QKD vs RSA → 4x faster key generation with 0.8% QBER.
+AI Fraud Detection → LSTM model achieved 95.8% accuracy with 1.2% false positives.
+Blockchain Security → Ensures tamper-proof ledger for payments.
+Transaction Time → ~4.5 sec (quantum-secured) vs ~2 sec (RSA), trading slight latency for future-proof security.
+
+🧪 Running Tests
+```bash
+cd backend
+pytest tests/
+```
+
+📌 Roadmap
+
+ Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
+
+ Development of Quantum Blockchain for scalable decentralized payments.
+
+ AI-driven adaptive QKD optimization.
+
+ Cloud deployment with Kubernetes.
+
+📜 Research Reference
+
+This repository is based on the paper:
+Y. Singh Dahiya, S. Pandey, D. Patel, A. Kulkarni (2024)
+Advancing Security in Digital Transactions Using Quantum Cryptography
+📖 Read the full paper here
+
+🤝 Contributing
+
+Contributions are welcome! Please fork the repo and submit a pull request. For major updates, open an issue first to discuss the changes.
