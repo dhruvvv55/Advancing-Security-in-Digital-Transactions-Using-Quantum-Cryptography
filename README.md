@@ -1,7 +1,7 @@
 # Advancing Security in Digital Transactions Using Quantum Cryptography
 
 This project is the implementation companion to our research paper:  
-**“Advancing Security in Digital Transactions Using Quantum Cryptography” (JISEM, 2024)**.
+**“Advancing Security in Digital Transactions Using Quantum Cryptography” (JISEM, 2025)**.
 
 It presents a **quantum-secured payment framework** that integrates **Quantum Key Distribution (QKD)**, **AI-driven fraud detection**, and **Blockchain-based immutability** to protect against both classical and quantum-enabled cyberattacks.
 
@@ -91,20 +91,13 @@ pytest tests/
 📌 Roadmap
 
  Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
-
  Development of Quantum Blockchain for scalable decentralized payments.
-
  AI-driven adaptive QKD optimization.
-
  Cloud deployment with Kubernetes.
 
 📜 Research Reference
-
-This repository is based on the paper:
-Y. Singh Dahiya, S. Pandey, D. Patel, A. Kulkarni (2024)
 Advancing Security in Digital Transactions Using Quantum Cryptography
-📖 Read the full paper here
+📖 [Read the full paper here]([https://ijarsct.co.in/Paper19379.pdf](https://jisem-journal.com/index.php/journal/article/view/9214/4252)).
 
 🤝 Contributing
-
 Contributions are welcome! Please fork the repo and submit a pull request. For major updates, open an issue first to discuss the changes.
