@@ -77,7 +77,7 @@ Frontend runs at: http://localhost:5173
 
 ---
 
-📊 Key Performance Highlights
+## 📊 Key Performance Highlights
 
 - QKD vs RSA → 4x faster key generation with 0.8% QBER.
 
@@ -89,14 +89,14 @@ Frontend runs at: http://localhost:5173
 
 ---
 
-🧪 Running Tests
+## 🧪 Running Tests
 ```bash
 cd backend
 pytest tests/
 ```
 ---
 
-📌 Roadmap
+## 📌 Roadmap
 
  - Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
  
@@ -108,7 +108,7 @@ pytest tests/
 
 ---
 
-📜 Research Reference
+## 📜 Research Reference
 
 Advancing Security in Digital Transactions Using Quantum Cryptography
 
@@ -116,6 +116,6 @@ Advancing Security in Digital Transactions Using Quantum Cryptography
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please fork the repo and submit a pull request. For major updates, open an issue first to discuss the changes.
