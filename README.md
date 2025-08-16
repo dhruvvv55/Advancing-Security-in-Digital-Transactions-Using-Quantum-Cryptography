@@ -87,17 +87,28 @@ Transaction Time → ~4.5 sec (quantum-secured) vs ~2 sec (RSA), trading slight 
 cd backend
 pytest tests/
 ```
+---
 
 📌 Roadmap
 
  Integration of Post-Quantum Cryptographic (PQC) algorithms (e.g., Kyber, NTRU).
+ 
  Development of Quantum Blockchain for scalable decentralized payments.
+ 
  AI-driven adaptive QKD optimization.
+ 
  Cloud deployment with Kubernetes.
 
+---
+
 📜 Research Reference
+
 Advancing Security in Digital Transactions Using Quantum Cryptography
+
 📖 [Read the full paper here]([https://ijarsct.co.in/Paper19379.pdf](https://jisem-journal.com/index.php/journal/article/view/9214/4252)).
 
+---
+
 🤝 Contributing
+
 Contributions are welcome! Please fork the repo and submit a pull request. For major updates, open an issue first to discuss the changes.
