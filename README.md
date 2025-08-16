@@ -75,12 +75,19 @@ npm run dev
 Frontend runs at: http://localhost:5173
 ```
 
+---
+
 📊 Key Performance Highlights
 
 QKD vs RSA → 4x faster key generation with 0.8% QBER.
+
 AI Fraud Detection → LSTM model achieved 95.8% accuracy with 1.2% false positives.
+
 Blockchain Security → Ensures tamper-proof ledger for payments.
+
 Transaction Time → ~4.5 sec (quantum-secured) vs ~2 sec (RSA), trading slight latency for future-proof security.
+
+---
 
 🧪 Running Tests
 ```bash
