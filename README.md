@@ -55,3 +55,10 @@ The framework is structured into six layers:
 ```bash
 git clone https://github.com/your-username/Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography.git
 cd Advancing-Security-in-Digital-Transactions-Using-Quantum-Cryptography
+
+### 1. Backend Setup
+cd backend
+python3 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
