@@ -5,12 +5,13 @@ from passlib.context import CryptContext
 from jose import JWTError, jwt
 from fastapi.security import OAuth2PasswordBearer
 from models.database import users_collection
-from services.encryption import encrypt_password, decrypt_password
+from services.encryption import hash_password, verify_password
 from typing import Optional
+from config.settings import JWT_SECRET_KEY
 
 router = APIRouter()
 
-SECRET_KEY = "supersecurekey"
+SECRET_KEY = JWT_SECRET_KEY
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -63,14 +64,10 @@ async def register_user(user: UserRegister):
     if existing_user:
         raise HTTPException(status_code=400, detail="Email or Mobile Number already registered")
 
-    encrypted_password, nonce, encryption_key = encrypt_password(user.password)
-
     users_collection.insert_one({
         "name": user.name,
         "email": user.email,
-        "password": encrypted_password,
-        "nonce": nonce,
-        "encryption_key": encryption_key,
+        "password_hash": hash_password(user.password),
         "mobile_number": user.mobile_number,
         "created_at": datetime.utcnow(),
     })
@@ -87,14 +84,7 @@ async def login_user(user: UserLogin):
     if not db_user:
         raise HTTPException(status_code=400, detail="User not found")
 
-    if "nonce" not in db_user or "encryption_key" not in db_user:
-        raise HTTPException(status_code=500, detail="Encryption data missing")
-
-    decrypted_password = decrypt_password(
-        db_user["password"], db_user["nonce"], db_user["encryption_key"]
-    )
-
-    if decrypted_password != user.password:
+    if "password_hash" not in db_user or not verify_password(user.password, db_user["password_hash"]):
         raise HTTPException(status_code=400, detail="Incorrect password")
 
     access_token = create_access_token(user.identifier)

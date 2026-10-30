@@ -1,5 +1,6 @@
 import os
-import random
+import hmac
+import secrets
 from twilio.rest import Client
 from pymongo import MongoClient
 from datetime import datetime, timedelta
@@ -33,9 +34,9 @@ class OTPVerifyRequest(BaseModel):
     mobile_number: str
     otp: str
 
-# Generate a random 6-digit OTP
+# Generate a 6-digit OTP from a cryptographically secure source
 def generate_otp():
-    return str(random.randint(100000, 999999))
+    return str(secrets.randbelow(900000) + 100000)
 
 # Send OTP via Twilio SMS with rate limiting
 def send_otp(mobile_number, transaction_id, transaction_amount="totalAmount", merchant_name="ShopFusion", validity="5 minutes"):
@@ -98,7 +99,7 @@ def verify_otp(mobile_number, user_otp, transaction_id):
 
     stored_otp = stored_otp_info["otp"]
     timestamp = stored_otp_info["timestamp"]
-    print(f"✔ Retrieved OTP: {stored_otp} at Time: {timestamp}")
+    print(f"✔ Retrieved OTP record at Time: {timestamp}")
 
     if isinstance(timestamp, str):
         timestamp = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S.%f")
@@ -113,10 +114,10 @@ def verify_otp(mobile_number, user_otp, transaction_id):
         print("❌ OTP expired")
         return {"status": "failed", "message": "OTP expired"}
     
-    if str(user_otp) == str(stored_otp):
+    if hmac.compare_digest(str(user_otp), str(stored_otp)):
         otp_collection.delete_one({"mobile_number": mobile_number})
         print("✅ OTP verified successfully")
         return {"status": "success", "message": "OTP verified successfully"}
     
-    print(f"❌ Invalid OTP entered: {user_otp} expected: {stored_otp}")
+    print("❌ Invalid OTP entered")
     return {"status": "failed", "message": "Invalid OTP"}

@@ -19,8 +19,8 @@ from security.firewalls.ddos_protection import RateLimitMiddleware
 from security.ssl_config import SSL_CERT_FILE, SSL_KEY_FILE
 from monitoring.prometheus_metrics import setup_metrics
 from quantum_simulation.quantum_encrypt import encrypt_message
-from services.encryption import encrypt_password, decrypt_password
 from models.fraud_logs import log_fraud_attempt
+from config.settings import JWT_SECRET_KEY
 
 app = FastAPI()
 
@@ -50,7 +50,7 @@ transactions_collection = db["transactions"]
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-SECRET_KEY = "supersecurekey"
+SECRET_KEY = JWT_SECRET_KEY
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -95,15 +95,11 @@ async def register_user(
     if existing_user:
         raise HTTPException(status_code=400, detail="Email or Mobile Number already registered")
 
-    encrypted_password, nonce, encryption_key = encrypt_password(password)
-
     new_user = {
         "name": name,
         "email": email,
         "mobile_number": mobile_number,
-        "password": encrypted_password,
-        "nonce": nonce,
-        "encryption_key": encryption_key,
+        "password_hash": hash_password(password),
         "created_at": datetime.utcnow(),
     }
     users_collection.insert_one(new_user)
@@ -124,14 +120,7 @@ async def login_user(user: UserLogin):
     if not db_user:
         raise HTTPException(status_code=400, detail="User not found")
 
-    if "nonce" not in db_user or "encryption_key" not in db_user:
-        raise HTTPException(status_code=500, detail="Encryption data missing")
-
-    decrypted_password = decrypt_password(
-        db_user["password"], db_user["nonce"], db_user["encryption_key"]
-    )
-
-    if decrypted_password != user.password:
+    if "password_hash" not in db_user or not verify_password(user.password, db_user["password_hash"]):
         raise HTTPException(status_code=400, detail="Incorrect password")
 
     access_token = create_access_token(user.identifier)
